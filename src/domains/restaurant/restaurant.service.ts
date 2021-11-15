@@ -45,9 +45,12 @@ export class RestaurantService {
   }
 
   getByCategoryIdsAsync(restaurantFilterDto: RestaurantFilterDto) {
+    const categoryIds = Array.isArray(restaurantFilterDto.CategoryIds)
+      ? restaurantFilterDto.CategoryIds
+      : [restaurantFilterDto.CategoryIds];
     return this.restaurantRepository.find({
       where: {
-        categoryIds: { $in: restaurantFilterDto.CategoryIds },
+        categoryIds: { $in: categoryIds },
       },
     });
   }
