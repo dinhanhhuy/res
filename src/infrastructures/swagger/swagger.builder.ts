@@ -4,7 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 export class SwaggerBuilder {
   static setup(app: INestApplication) {
     const config = new DocumentBuilder()
-      .setTitle('VietCrypto')
+      .setTitle('Demo')
       .setDescription('Swagger API Document')
       .build();
     const document = SwaggerModule.createDocument(app, config);
