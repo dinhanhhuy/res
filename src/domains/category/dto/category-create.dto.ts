@@ -9,6 +9,9 @@ export class CategoryCreateDto {
   readonly name: string;
 
   @IsEnum(StatusType)
-  @ApiProperty({ enum: [Helpers.getAllValues(StatusType)] })
+  @ApiProperty({
+    enum: [Helpers.getAllValues(StatusType)],
+    default: StatusType.Enabled,
+  })
   readonly status: StatusType;
 }
