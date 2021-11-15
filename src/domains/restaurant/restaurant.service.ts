@@ -1,9 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm/repository/Repository';
-import { CategoryService } from '../category/category.service';
 import { RestaurantCreateDto } from './dto/restaurant-create.dto';
-import {RestaurantFilterDto} from './dto/restaurant-filter.dto';
+import { RestaurantFilterDto } from './dto/restaurant-filter.dto';
 import { RestaurantUpdateDto } from './dto/restaurant-update.dto';
 import { Restaurant } from './restaurant.entity';
 
@@ -11,8 +10,7 @@ import { Restaurant } from './restaurant.entity';
 export class RestaurantService {
   constructor(
     @InjectRepository(Restaurant)
-    private readonly restaurantRepository: Repository<Restaurant>,
-    private readonly categoryService: CategoryService,
+    private readonly restaurantRepository: Repository<Restaurant>
   ) {}
 
   createAsync(restaurantCreateDto: RestaurantCreateDto): Promise<Restaurant> {
